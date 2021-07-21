@@ -158,6 +158,14 @@ io.on('connection', function (socket) {
         io.emit('update-software', msg);
 
     });
+    
+    
+    socket.on('shutdown-node', function(msg){
+        console.log("shutting down");
+
+        io.emit('shutdown-node', msg);
+
+    });
 
     socket.on('update-name', function(msg){
         console.log("Updating device name");
