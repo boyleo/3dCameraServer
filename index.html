@@ -31,11 +31,16 @@
                 <span class="navbar-brand" href="#">
                     3D Scanner Camera Coordinator
                 </span>
-                <input type="button" value="Take Photo" class="btn btn-success navbar-btn" v-on:click="takePhoto">
             </div>
+			
         </div>
     </nav>
     <div class="container-fluid">
+		<div class="row">
+			ISO <input type="text" value="100" name="camera-iso" @keyup.enter="updateISO($event)">
+			<br>Shutter 1/<input type="text" value="20" name="camera-ss" @keyup.enter="updateSS($event)">
+			<br><input type="button" value="Take Photo" class="btn btn-success navbar-btn" v-on:click="takePhoto">
+		</div>
         <div class="row">
             <div class="col-xs-3" v-for="photo in photos">
                 <img :src="photo.imagePath" class="thumbnail">

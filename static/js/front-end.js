@@ -1,5 +1,9 @@
 var clientId = guid();
 
+var cameraNewISO = 100;
+var cameraNewWhitebalance = 'fluorescent';
+var cameraNewShutterSpeed = 50000;
+var cameraNewRotation = 180;
 
 
 var app = new Vue({
@@ -82,7 +86,8 @@ var app = new Vue({
     methods: {
         takePhoto: function () {
             takeId = guid();
-            this.socket.emit('take-photo', {takeId: takeId, time: Date.now()});
+			var shutter = 1000000/cameraNewShutterSpeed;
+            this.socket.emit('take-photo', {takeId: takeId, time: Date.now(), newISO: cameraNewISO, newSS: shutter, newRot: cameraNewRotation});
         },
         updateSoftware: function () {
             this.socket.emit('update-software', {});
@@ -94,6 +99,18 @@ var app = new Vue({
             console.log("Update name", socketId, event.target.value);
             this.socket.emit('update-name', {socketId: socketId, newName: event.target.value});
             event.target.value = null;
+        },
+		updateISO: function (event) {
+            console.log("Update ISO", event.target.value);
+            // this.socket.emit('update-iso', {newISO: event.target.value});
+			cameraNewISO = event.target.value;
+            //event.target.value = null;
+        },
+		updateSS: function (event) {
+            console.log("Update Shutter Speed", event.target.value);
+            // this.socket.emit('update-iso', {newISO: event.target.value});
+			cameraNewShutterSpeed = event.target.value;
+            //event.target.value = null;
         }
     }
 })

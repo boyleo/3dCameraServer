@@ -167,6 +167,12 @@ io.on('connection', function (socket) {
 
     });
 
+	socket.on('update-iso', function(msg){
+        console.log("Updating ISO setting");
+
+        io.emit('update-iso', newISO: msg.newISO});
+    });
+	
     socket.on('update-name', function(msg){
         console.log("Updating device name");
 
