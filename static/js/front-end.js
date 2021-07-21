@@ -87,6 +87,9 @@ var app = new Vue({
         updateSoftware: function () {
             this.socket.emit('update-software', {});
         },
+        shutdownNode: function () {
+            this.socket.emit('shutdown-node', {});
+        },
         updateName: function (socketId, event) {
             console.log("Update name", socketId, event.target.value);
             this.socket.emit('update-name', {socketId: socketId, newName: event.target.value});
