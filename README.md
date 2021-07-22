@@ -16,7 +16,7 @@ If you don't have node installed it can be downloaded from [NodeJS](https://node
 ### Download the files
 This repository needs to be downloaded to a folder on your computer, this can be done using the following command.
 ```bash
-git clone https://github.com/ArthurGuy/3dCameraServer.git
+git clone https://github.com/boyleo/3dCameraServer.git
 ```
 
 If you prefer you can also download the code as a zip file and unpack into a folder of your choice.
